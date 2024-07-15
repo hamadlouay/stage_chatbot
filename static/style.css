@@ -1,0 +1,198 @@
+/* Imported Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Raleway|Ubuntu&display=swap");
+
+/* General Body Styles */
+body {
+    background: #E8EBF5;
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Chat Box Styles */
+.chat-box {
+    height: 80%;
+    width: 400px;
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 15;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    right: 0;
+    bottom: 60px;
+    margin: 15px;
+    background: #4c4cc1;
+    border-radius: 15px;
+    visibility: hidden;
+    background-image: url("{{ url_for('static', filename='background.jpg') }}");
+    background-size: cover; /* Cover the entire chat box */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+.chat-box-header {
+    height: 50px;
+    background-color: #4c4cc1; /* Background color */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between; /* Space between title and close button */
+    align-items: center; /* Center vertically */
+    padding: 0 15px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box-header h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    color: #f8f8fe; /* Text color */
+}
+
+p#close-chat {
+    font-size: 10px;
+    color: #f1f1f1;
+    cursor: pointer;
+    margin: 10px;
+    /* Remove text content */
+    content: "";
+    /* Ensure the element respects the size */
+    display: inline-block;
+    /* Push the icon to the right */
+    margin-left: auto;
+}
+p#close-chat img {
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+}
+
+.chat-box-body {
+    height: 75%;
+    background: #b7d5e9;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.chat-box-body-receive {
+    width: 250px;
+    background: rgb(231, 230, 230);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.015);
+    margin-bottom: 14px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.chat-box-body-send {
+    width: 250px;
+    background: rgb(227, 227, 227);
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.015);
+    margin-bottom: 14px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: auto; /* Add this to push it to the right */
+}
+
+
+.chat-box-body-send p, .chat-box-body-receive p {
+    margin: 0;
+    color: #4c4cc1;
+    font-size: 14px;
+    margin-bottom: 0.25rem;
+}
+
+.chat-box-footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* Ensure buttons and input wrap on smaller screens */
+}
+
+.chat-box-footer button {
+    border: none;
+    padding: 10px; /* Adjust padding to fit the logo size */
+    background: transparent; /* Make the button background transparent */
+    cursor: pointer;
+}
+
+.chat-box-footer button:focus {
+    outline: none;
+}
+
+.chat-box-footer img {
+    width: 24px;
+    height: 24px;
+}
+
+.chat-box-footer input {
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background: rgb(235, 232, 232);
+    margin: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+    color: #444;
+    width: 280px;
+}
+
+.chat-box-footer input:focus {
+    outline: none;
+}
+
+/* Chat Button Styles */
+.chat-button {
+    padding: 20px;
+    background: #4c4cc1;
+    width: 18px; /* Adjusted width */
+    height: 18px; /* Adjusted height */
+    position: fixed;
+    bottom: 15px; /* Adjusted margin */
+    right: 15px; /* Adjusted margin */
+    border-radius: 50%; /* Rounded button */
+    box-shadow: 0 15px 15px rgba(44, 80, 239, 0.21);
+    cursor: pointer;
+    z-index: 20; /* Ensure it's above the chatbox */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-button i {
+    color: #fff;
+    font-size: 20px; /* Adjust icon size */
+}
+.chat-box-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    /* Adjust chat box width for tablets and smaller laptops */
+    .chat-box {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust chat box width and font size for tablets and larger phones */
+    .chat-box {
+        width: 95%;
+    }
+
+    .chat-box-footer input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust chat box width and font size for smaller phones */
+    .chat-box {
+        width: 100%;
+    }
+
+    .chat-box-footer input {
+        width: 100%;
+    }
+}

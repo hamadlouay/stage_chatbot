@@ -1,0 +1,7 @@
+Flask
+groq
+langchain-core
+langchain-groq
+langchain-community
+faiss-cpu
+pickle5

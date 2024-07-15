@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Chatbot</title>
+</head>
+<body>
+    <div class="chat-box">
+        <div class="chat-box-header">
+            <h3>AI Assistant</h3>
+            <p id="close-chat" class="close">
+                <img src="{{ url_for('static', filename='images/icons8-close-32.png') }}" alt="close" class="messenger-logo">
+            </p>
+        </div>
+        <div class="chat-box-body" id="chat-box-body">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div class="chat-box-footer">
+            <input type="text" id="userInput" placeholder="Type your message here...">
+            <button id="sendButton" class="send">
+                <img src="{{ url_for('static', filename='images/icons8-send-24.png') }}" alt="Send" class="messenger-logo">
+            </button>
+        </div>
+    </div>
+    <div class="chat-button">
+    <i class="fas fa-comments"></i>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".chat-button, #close-chat").click(function() {
+                var chatBox = $(".chat-box");
+                if (chatBox.css("visibility") === "hidden") {
+                    chatBox.css("visibility", "visible");
+                } else {
+                    chatBox.css("visibility", "hidden");
+                }
+            });
+
+            function sendMessage() {
+                var userMessage = $("#userInput").val();
+                if (userMessage.trim() === "") return;  // Prevent sending empty messages
+                $("#chat-box-body").append('<div class="chat-box-body-send"><p>' + userMessage + '</p></div>');
+                $("#userInput").val('');
+                $.post("/get", { msg: userMessage }).done(function(response) {
+                    $("#chat-box-body").append('<div class="chat-box-body-receive"><p>' + response + '</p></div>');
+                });
+            }
+            $("#sendButton").click(function() {
+                sendMessage();
+            });
+
+            $("#userInput").keypress(function(event) {
+                if (event.which == 13) {  // Enter key pressed
+                    sendMessage();
+                }
+            });
+            });
+    </script>
+</body>
+</html>
