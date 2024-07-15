@@ -19,6 +19,7 @@
         <div class="chat-box-body" id="chat-box-body">
             <!-- Chat messages will be appended here -->
         </div>
+        
         <div class="chat-box-footer">
             <input type="text" id="userInput" placeholder="Type your message here...">
             <button id="sendButton" class="send">
@@ -27,8 +28,8 @@
         </div>
     </div>
     <div class="chat-button">
-    <i class="fas fa-comments"></i>
-</div>
+        <i class="fas fa-comments"></i>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -45,12 +46,25 @@
             function sendMessage() {
                 var userMessage = $("#userInput").val();
                 if (userMessage.trim() === "") return;  // Prevent sending empty messages
-                $("#chat-box-body").append('<div class="chat-box-body-send"><p>' + userMessage + '</p></div>');
+
+                var currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                $("#chat-box-body").append('<div class="chat-box-body-send"><p>' + userMessage + '</p><span class="timestamp">' + currentTime + '</span></div>');
                 $("#userInput").val('');
+
+                // Show thinking animation
+                $("#chat-box-body").append('<div id="thinking" class="chat-box-body-receive"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
+
                 $.post("/get", { msg: userMessage }).done(function(response) {
-                    $("#chat-box-body").append('<div class="chat-box-body-receive"><p>' + response + '</p></div>');
+                    // Remove thinking animation
+                    $("#thinking").remove();
+
+                    // Add chatbot response
+                    currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    $("#chat-box-body").append('<div class="chat-box-body-receive"><p>' + response + '</p><span class="timestamp">' + currentTime + '</span></div>');
                 });
             }
+
             $("#sendButton").click(function() {
                 sendMessage();
             });
@@ -60,7 +74,7 @@
                     sendMessage();
                 }
             });
-            });
+        });
     </script>
 </body>
 </html>
