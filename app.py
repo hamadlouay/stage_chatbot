@@ -46,8 +46,7 @@ memory = ConversationBufferWindowMemory(k=5, memory_key="chat_history", return_m
 # Function to interact with the Groq API
 def get_chat_response(prompt, chat_history):
     # Retrieve relevant chunks from the vector store
-    query_embedding = OllamaEmbeddings().embed_query(prompt)
-    retrieved_docs = vector_store.similarity_search(query_embedding, k=5)
+    retrieved_docs = vector_store.similarity_search(prompt, k=5)
 
     context = " ".join([doc.page_content for doc in retrieved_docs])
 
@@ -89,4 +88,4 @@ def get_chat_response(prompt, chat_history):
     return response,context
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)

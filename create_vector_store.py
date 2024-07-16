@@ -38,11 +38,13 @@ def load_and_process_website_content_from_sitemap(vector_store_path):
         return
 
     # Create embeddings for the chunks
-    embeddings = OllamaEmbeddings()
-    embedded_docs = embeddings.embed_documents([doc.page_content for doc in all_docs])
-    print(f"Created embeddings for {len(embedded_docs)} documents")
+    from langchain.embeddings import SentenceTransformerEmbeddings
+    embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+   
+    from langchain.vectorstores import Chroma
+    db = Chroma.from_documents(docs, embeddings)
 
-    if not embedded_docs:
+    if not embeddings:
         print("No embeddings were created.")
         return
 
