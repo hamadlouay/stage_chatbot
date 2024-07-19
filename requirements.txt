@@ -5,3 +5,11 @@ langchain-groq
 langchain-community
 faiss-cpu
 pickle5
+flask
+groq
+langchain
+beautifulsoup4
+requests
+langchain-community
+sentence-transformers
+

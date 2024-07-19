@@ -22,7 +22,7 @@ body {
     right: 0;
     bottom: 60px;
     margin: 15px;
-    background: #4c4cc1;
+    background: #c9d93b;
     border-radius: 15px;
     visibility: hidden;
     background-image: url("{{ url_for('static', filename='background.jpg') }}");
@@ -33,7 +33,7 @@ body {
 
 .chat-box-header {
     height: 50px;
-    background-color: #4c4cc1; /* Background color */
+    background-color: #c9d93b; /* Background color */
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     display: flex;
@@ -69,7 +69,7 @@ p#close-chat img {
 
 .chat-box-body {
     height: 75%;
-    background: #b7d5e9;
+    background: #e9efb5;
     overflow-y: scroll;
     padding: 10px;
 }
@@ -98,7 +98,7 @@ p#close-chat img {
 
 .chat-box-body-send p, .chat-box-body-receive p {
     margin: 0;
-    color: #4c4cc1;
+    color: #1d1d1c;
     font-size: 14px;
     margin-bottom: 0.25rem;
 }
@@ -144,7 +144,7 @@ p#close-chat img {
 /* Chat Button Styles */
 .chat-button {
     padding: 20px;
-    background: #4c4cc1;
+    background: #c9d93b;
     width: 18px; /* Adjusted width */
     height: 18px; /* Adjusted height */
     position: fixed;

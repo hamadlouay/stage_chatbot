@@ -8,7 +8,6 @@ from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplat
 from langchain_core.messages import SystemMessage
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 from langchain_groq import ChatGroq
-from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.vectorstores import FAISS
 
 # Initialize Flask app
@@ -38,7 +37,7 @@ def index():
 def chat():
     msg = request.form["msg"]
     response,context = get_chat_response(msg, chat_history)
-    return  response
+    return   response
 
 # Memory for conversation context
 memory = ConversationBufferWindowMemory(k=5, memory_key="chat_history", return_messages=True)
@@ -54,7 +53,9 @@ def get_chat_response(prompt, chat_history):
     prompt_template = ChatPromptTemplate.from_messages(
         [
             SystemMessage(
-                content=f'''You are an assistant specialized in answering questions about Ecole Polytechnique de Tunisie (EPT). If you don't know the answer, simply say "I don't know" and do not fabricate answers. You can communicate in English, French, or Arabic. Your responses should be brief, contextual, and provide accurate information. Ensure your answers are clear and concise without copying directly from the context.the contexe {context}'''
+                content=f'''You are an assistant specialized in answering questions about INCLUSION ÉCONOMIQUE DES JEUNES (IEJ)
+. If you don't know the answer, simply say "I don't know" and do not fabricate answers. You can communicate in English, French, or Arabic. Your responses should be brief, contextual, and provide accurate information. Ensure your answers are clear and concise without copying directly from the context. only answer questions related to iej ,after answering give me the context.the contexe {context}.
+"'''
             ),
             MessagesPlaceholder(
                 variable_name="chat_history"
