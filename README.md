@@ -3,7 +3,7 @@
 This repository contains an AI chatbot application built with Flask, Groq API, and LangChain. The chatbot is designed to answer questions specifically related to "INCLUSION ÉCONOMIQUE DES JEUNES (IEJ)" and can respond in English, French, or Arabic. The application is integrated with a web interface for interaction.
 
 ## Table of Contents
-
+- RAG
 - Installation
 - Usage
 - Files Description
@@ -11,6 +11,35 @@ This repository contains an AI chatbot application built with Flask, Groq API, a
 - Docker Deployment
 - Troubleshooting
 - License
+## RAG
+RAG stands for Retrieval-Augmented Generation. It combines two main components:
+
+1. **Retriever:** A component that searches through a large corpus of documents or knowledge bases to find relevant information based on the input query.
+2. **Generator:** A component, usually a language model, that generates responses by using the information retrieved by the retriever.
+
+In a RAG-based chatbot:
+
+- When a user asks a question, the retriever searches for relevant documents or data.
+- The generator then uses this retrieved information to craft a response that is both accurate and contextually appropriate.
+
+This approach helps the chatbot provide more informative and reliable answers, especially when dealing with specific or complex queries.
+
+## How RAG is Implemented in Our Chatbot
+
+1. **Input Processing:** The chatbot receives a user query.
+2. **Retrieval Step:** The retriever searches through a predefined corpus (such as knowledge bases, documents, or web pages) to find the most relevant information.
+3. **Generation Step:** The generator takes the retrieved information and crafts a coherent and contextually relevant response.
+4. **Response Delivery:** The chatbot sends the generated response back to the user.
+
+### Flow Diagram
+
+![RAG Workflow][ChatBot-main/static/images/RAG_overview-1-1.png]
+
+## Benefits of Using RAG in the Chatbot
+
+- **Enhanced Accuracy:** By combining retrieval with generation, the chatbot can provide more accurate answers.
+- **Contextual Relevance:** RAG ensures that responses are not just generative but are also backed by factual data.
+- **Scalability:** The retriever can search through vast amounts of data, making it scalable for different domains and large datasets.
 
 ## Installation
 
@@ -86,3 +115,6 @@ Docker Issues: Make sure Docker is installed and running properly on your system
 ## License
 This project is licensed under the MIT License.
 
+
+
+[def]: ChatBot-main/static/images/RAG_overview-1-1.png
