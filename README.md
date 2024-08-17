@@ -71,6 +71,8 @@ Create a .env file in the root directory of the project and add your Groq API ke
 ```bash
 GROQ_API_KEY=your_groq_api_key_here
 ```
+## GROQ KEY
+![groq key](https://github.com/hamadlouay/stage_chatbot/blob/main/static/images/images.png)
 link:
 https://console.groq.com/keys
 ## Load Vector Store
