@@ -1,6 +1,6 @@
 # AI Chatbot Application
 
-This repository contains a simple AI chatbot application built with Flask, Groq API, and LangChain. The chatbot is designed to answer questions specifically related to "INCLUSION ÉCONOMIQUE DES JEUNES (IEJ)" and can respond in English, French, or Arabic. The application is integrated with a web interface for interaction.
+This repository contains an AI chatbot application built with Flask, Groq API, and LangChain. The chatbot is designed to answer questions specifically related to "INCLUSION ÉCONOMIQUE DES JEUNES (IEJ)" and can respond in English, French, or Arabic. The application is integrated with a web interface for interaction.
 
 ## Table of Contents
 
@@ -25,8 +25,8 @@ Ensure you have the following installed on your system:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ai-chatbot.git
-cd ai-chatbot
+git clone https://github.com/hamadlouay/stage_chatbot
+cd stage_chatbot
 ```
 ## Create a Virtual Environment
 ```python
