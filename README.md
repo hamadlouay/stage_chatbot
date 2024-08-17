@@ -33,7 +33,7 @@ This approach helps the chatbot provide more informative and reliable answers, e
 
 ### Flow Diagram
 
-![RAG Workflow](C:\Users\hamad louay\Desktop\ChatBot-main\ChatBot-main\static\images\RAG_overview-1-1.png)
+![RAG Workflow](https://github.com/hamadlouay/stage_chatbot/blob/main/static/images/RAG_overview-1-1.png)
 
 ## Benefits of Using RAG in the Chatbot
 
